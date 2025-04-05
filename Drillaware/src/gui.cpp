@@ -382,8 +382,14 @@ void gui::Render() noexcept
             ImGui::BeginGroup(); {
                 ImGui::PushFont(fonts::Regylar);
                 ImGui::SliderInt("Prestige", &variables::iPrestige, 0, 11);
-                custom::button("Send Prestige", ImVec2(200, 25));
-                custom::button("Level 70", ImVec2(200, 25));
+                if (custom::button("Send Prestige", ImVec2(200, 25)))
+                {
+                    functions::sendPrestige(variables::iPrestige);
+                }
+                if (custom::button("Level 70", ImVec2(200, 25)))
+                {
+                    functions::doLevel70();
+                }
                 ImGui::PopFont();
             }ImGui::EndGroup();
             e_elements::end_child();

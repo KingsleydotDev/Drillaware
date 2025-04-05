@@ -9,7 +9,7 @@ namespace functions
         {
             ImGuiIO& io = ImGui::GetIO();
             io.MouseDrawCursor = true;
-            *reinterpret_cast<int**>(0x6427D3D) = nullptr; // Unhook mouse
+            *reinterpret_cast<int**>(0x6427D3D) = nullptr; 
         }
         else
         {
@@ -20,8 +20,8 @@ namespace functions
     }
     void doTweaks()
     {
-        DWORD dwPointer = *(DWORD*)0xAAC1F8;
-        *(float*)(dwPointer + 0xC) = variables::fFieldOfView; // FOV
+        DWORD dwPointer = *(DWORD*)0xAAC1F8; // FOV
+        *(float*)(dwPointer + 0xC) = variables::fFieldOfView; 
 
         *(int*)0x638152C = variables::iFPS; // FPS
 
@@ -33,12 +33,20 @@ namespace functions
         if (!variables::bThirdPerson)
         {
             DWORD dwPointer = *(DWORD*)0x86A264;
-            *(int*)(dwPointer + 0xC) = 0;
+            *(int*)(dwPointer + 0xC) = 0; //disabled
         }
 
     }
+    void sendPrestige(int prestige)
+    {
+        *(DWORD*)0x1B8B770 = prestige;
+    }
     char* getPlayerName(int client)
     {
-        return (char*)(0x99786C + (client * 0x52C));//done
+        return (char*)(0x99786C + (client * 0x52C)); // get player name for kick buttons
+    }
+    void doLevel70()
+    {
+        *(DWORD*)0x1B8B768 = 2450000;
     }
 }

@@ -4,4 +4,8 @@
 
 namespace functions {
 	void handleMouseCursor();
+	void doTweaks();
+	void sendPrestige(int prestige);
+	char* getPlayerName(int client);
+	void doLevel70();
 }
