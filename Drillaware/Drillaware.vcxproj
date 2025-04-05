@@ -161,6 +161,7 @@
     <ClInclude Include="ext\minhook\minhook.h" />
     <ClInclude Include="ext\minhook\trampoline.h" />
     <ClInclude Include="src\Font.h" />
+    <ClInclude Include="src\functions.h" />
     <ClInclude Include="src\gui.h" />
     <ClInclude Include="src\hooks.h" />
     <ClInclude Include="src\utils.h" />
@@ -181,6 +182,7 @@
     <ClCompile Include="ext\minhook\hde\hde64.c" />
     <ClCompile Include="ext\minhook\hook.c" />
     <ClCompile Include="ext\minhook\trampoline.c" />
+    <ClCompile Include="src\functions.cpp" />
     <ClCompile Include="src\gui.cpp" />
     <ClCompile Include="src\dllmain.cpp" />
     <ClCompile Include="src\hooks.cpp" />

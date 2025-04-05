@@ -15,6 +15,7 @@
 #include <Drillaware/Drillaware/ext/imgui/etc_element.h>
 #include "variables.h"
 #include "Font.h"
+#include "functions.h"
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(
 	HWND window,
@@ -238,8 +239,7 @@ void gui::Destroy() noexcept
 
 void gui::Render() noexcept
 {
-
-	ImGui::Begin("Kinsley DX9 Template Menu", &open, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBringToFrontOnFocus);
+	ImGui::Begin("DRILLAWARE", &open, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBringToFrontOnFocus);
 	{
         ImDrawList* draw = ImGui::GetWindowDrawList();
         const auto& p = ImGui::GetWindowPos();
@@ -426,6 +426,8 @@ LRESULT CALLBACK WindowProcess(
 	if (GetAsyncKeyState(VK_INSERT) & 1) {
 		gui::open = !gui::open;
 	}
+
+    functions::handleMouseCursor();
 
 	// Pass Messages to Imgui
 	if (gui::open && ImGui_ImplWin32_WndProcHandler(
