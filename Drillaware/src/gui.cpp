@@ -386,7 +386,7 @@ void gui::Render() noexcept
                 {
                     functions::sendPrestige(variables::iPrestige);
                 }
-                if (custom::button("Level 70", ImVec2(200, 25)))
+                if (custom::button("LVL 70", ImVec2(200, 25)))
                 {
                     functions::doLevel70();
                 }

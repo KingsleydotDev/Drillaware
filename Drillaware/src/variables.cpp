@@ -1,4 +1,3 @@
-// variables.cpp
 #include "variables.h"
 
 bool variables::bEnableDLC = true;
