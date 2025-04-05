@@ -7,7 +7,7 @@ extern struct tab_state
     ImVec4 bg2;
 };
 
-ImFont* fonts::font2 = nullptr;
+//ImFont* fonts::font2 = nullptr;
 
 namespace colors {
     ImColor color_edit4 = { 110 / 255.f, 117 / 255.f, 255 / 255.f, 255.00f };
@@ -290,3 +290,4 @@ bool custom::begincombo(const char* label, const char* preview_value)
 
     return true;
 }
+

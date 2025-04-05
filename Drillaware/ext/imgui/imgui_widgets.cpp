@@ -136,10 +136,10 @@ namespace fonts {
     extern ImFont* ico;
 }
 
-ImFont* fonts::Regylar = nullptr;
-ImFont* fonts::icons = nullptr;
-ImFont* fonts::ico_list = nullptr;
-ImFont* fonts::ico = nullptr;
+//ImFont* fonts::Regylar = nullptr;
+//ImFont* fonts::icons = nullptr;
+//ImFont* fonts::ico_list = nullptr;
+//ImFont* fonts::ico = nullptr;
 
 //-------------------------------------------------------------------------
 // [SECTION] Widgets: Text, etc.
