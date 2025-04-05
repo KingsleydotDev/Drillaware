@@ -10,7 +10,7 @@ void Setup(const HMODULE instance)
 {
 	try
 	{
-		AllocConsole();
+		//AllocConsole();
 		FILE* fp;
 		freopen_s(&fp, "CONOUT$", "w", stdout); // Gimme cout logs
 
