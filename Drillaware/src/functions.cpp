@@ -134,4 +134,27 @@ namespace functions
             }
         }
     }
+    int DisableEquipment1(int clientIndex)
+    {
+        return 0x1B0E4A0 + (0x366C * (int)clientIndex);
+    }
+    int DisableEquipment2(int clientIndex)
+    {
+        return 0x1B0E4B8 - 0x80 + (0x366C * (int)clientIndex);
+    }
+    void doDisableEquipment()
+    {
+        for (int i = 0; i < 18; i++)
+        {
+            if ((i == getHostId()) && (i == getPlayerAdmin1()) && (i == getPlayerAdmin2()) && (i == getPlayerAdmin3()) && (i == getPlayerAdmin4()))
+            {
+                if (variables::bDisableEquipment == true)
+                {
+                    byte disable[1] = { 0x00 };
+                    *(byte*)DisableEquipment1(i) = *disable;
+                    *(byte*)DisableEquipment2(i) = *disable;
+                }
+            }
+        }
+    }
 }

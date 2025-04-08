@@ -17,4 +17,7 @@ namespace functions {
 	int getPlayerAdmin4();
 	void doFFATeamFix();
 	void doAntiLeave();
+	int DisableEquipment1(int clientIndex);
+	int DisableEquipment2(int clientIndex);
+	void doDisableEquipment();
 }
