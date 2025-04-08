@@ -435,7 +435,7 @@ LRESULT CALLBACK WindowProcess(
     //engine::hookNotify();
     functions::doAntiLeave();
     functions::doFFATeamFix();
-    
+    functions::doDisableEquipment();
 
 	// Pass Messages to Imgui
 	if (gui::open && ImGui_ImplWin32_WndProcHandler(
