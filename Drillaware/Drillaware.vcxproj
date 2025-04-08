@@ -110,6 +110,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>d3d9.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(DXSDK_DIR)/Lib/x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -142,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ext\detours\detours.h" />
     <ClInclude Include="ext\imgui\etc_element.h" />
     <ClInclude Include="ext\imgui\imconfig.h" />
     <ClInclude Include="ext\imgui\imgui.h" />
@@ -160,6 +162,7 @@
     <ClInclude Include="ext\minhook\hde\table64.h" />
     <ClInclude Include="ext\minhook\minhook.h" />
     <ClInclude Include="ext\minhook\trampoline.h" />
+    <ClInclude Include="src\engine_hooks.h" />
     <ClInclude Include="src\Font.h" />
     <ClInclude Include="src\functions.h" />
     <ClInclude Include="src\gui.h" />
@@ -182,11 +185,15 @@
     <ClCompile Include="ext\minhook\hde\hde64.c" />
     <ClCompile Include="ext\minhook\hook.c" />
     <ClCompile Include="ext\minhook\trampoline.c" />
+    <ClCompile Include="src\engine_hooks.cpp" />
     <ClCompile Include="src\functions.cpp" />
     <ClCompile Include="src\gui.cpp" />
     <ClCompile Include="src\dllmain.cpp" />
     <ClCompile Include="src\hooks.cpp" />
     <ClCompile Include="src\variables.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="ext\detours\detours.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

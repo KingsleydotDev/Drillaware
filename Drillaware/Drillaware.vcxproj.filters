@@ -87,6 +87,12 @@
     <ClInclude Include="src\functions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\engine_hooks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\detours\detours.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ext\imgui\imgui.cpp">
@@ -146,5 +152,11 @@
     <ClCompile Include="src\variables.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\engine_hooks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="ext\detours\detours.lib" />
   </ItemGroup>
 </Project>

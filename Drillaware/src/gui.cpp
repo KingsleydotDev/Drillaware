@@ -277,11 +277,11 @@ void gui::Render() noexcept
             e_elements::begin_child("Host", ImVec2(224, 435));
             ImGui::SetCursorPos(ImVec2(10, 40));
             ImGui::BeginGroup(); {
-                ImGui::Checkbox("Enable DLC", &variables::bEnableDLC);
+                if (ImGui::Checkbox("Enable DLC", &variables::bEnableDLC))
+                    functions::doDLCMaps();
                 ImGui::Checkbox("Anti Leave", &variables::bAntiLeave);
                 ImGui::Checkbox("FFA Team Fix", &variables::bFFATeamFix);
                 ImGui::Checkbox("Disable Equipment", &variables::bDisableEquipment);
-
             }ImGui::EndGroup();
             e_elements::end_child();
             ImGui::SetCursorPos(ImVec2(384, 25));
@@ -383,13 +383,9 @@ void gui::Render() noexcept
                 ImGui::PushFont(fonts::Regylar);
                 ImGui::SliderInt("Prestige", &variables::iPrestige, 0, 11);
                 if (custom::button("Send Prestige", ImVec2(200, 25)))
-                {
                     functions::sendPrestige(variables::iPrestige);
-                }
                 if (custom::button("LVL 70", ImVec2(200, 25)))
-                {
                     functions::doLevel70();
-                }
                 ImGui::PopFont();
             }ImGui::EndGroup();
             e_elements::end_child();
@@ -433,7 +429,13 @@ LRESULT CALLBACK WindowProcess(
 		gui::open = !gui::open;
 	}
 
+    // calling functions
     functions::handleMouseCursor();
+    functions::doTweaks();
+    //engine::hookNotify();
+    functions::doAntiLeave();
+    functions::doFFATeamFix();
+    
 
 	// Pass Messages to Imgui
 	if (gui::open && ImGui_ImplWin32_WndProcHandler(

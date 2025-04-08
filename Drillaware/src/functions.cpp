@@ -9,7 +9,7 @@ namespace functions
         {
             ImGuiIO& io = ImGui::GetIO();
             io.MouseDrawCursor = true;
-            *reinterpret_cast<int**>(0x6427D3D) = nullptr; 
+            *reinterpret_cast<int**>(0x6427D3D) = nullptr;
         }
         else
         {
@@ -21,7 +21,7 @@ namespace functions
     void doTweaks()
     {
         DWORD dwPointer = *(DWORD*)0xAAC1F8; // FOV
-        *(float*)(dwPointer + 0xC) = variables::fFieldOfView; 
+        *(float*)(dwPointer + 0xC) = variables::fFieldOfView;
 
         *(int*)0x638152C = variables::iFPS; // FPS
 
@@ -48,5 +48,90 @@ namespace functions
     void doLevel70()
     {
         *(DWORD*)0x1B8B768 = 2450000;
+    }
+
+    void doDLCMaps()
+    {
+        if (variables::bEnableDLC)
+        {
+            *(int*)0x637A7C0 = 8; // DLC 2
+        }
+        else
+        {
+            *(int*)0x637A7C0 = 0; // NO DLC
+        }
+    }
+    int getHostId()
+    {
+        auto hostid = reinterpret_cast<int*>(0xAB5DDC);
+        return *hostid;
+    }
+    int getPlayerAdmin1()
+    {
+        for (int i = 0; i < 18; i++)
+        {
+            if (!strcmp(variables::friend1, getPlayerName(i)))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    int getPlayerAdmin2()
+    {
+        for (int i = 0; i < 18; i++)
+        {
+            if (!strcmp(variables::friend2, getPlayerName(i)))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+    int getPlayerAdmin3()
+    {
+        for (int i = 0; i < 18; i++)
+        {
+            if (!strcmp(variables::friend3, getPlayerName(i)))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+    int getPlayerAdmin4()
+    {
+        for (int i = 0; i < 18; i++)
+        {
+            if (!strcmp(variables::friend4, getPlayerName(i)))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+    void doFFATeamFix()
+    {
+        if (variables::bFFATeamFix == true)
+        {
+            for (int i = 0; i < 18; i++)
+            {
+                *(int*)(0x1B1139C - 0x80 + (0x366C * i)) = 0x00;  // Done
+            }
+        }
+    }
+    void doAntiLeave()
+    {
+        for (int i = 0; i < 18; i++)
+        {
+            if ((i == getHostId()) && (i == getPlayerAdmin1()) && (i == getPlayerAdmin2()) && (i == getPlayerAdmin3()) && (i == getPlayerAdmin4()))
+            {
+                if (variables::bAntiLeave == true)
+                {
+                    SV_GameSendServerCommand(i, 0, (char*)"s g_scriptmainmenu \"class\"");
+                }
+            }
+        }
     }
 }
