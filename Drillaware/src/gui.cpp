@@ -318,15 +318,96 @@ void gui::Render() noexcept
             ImGui::SetCursorPos(ImVec2(10, 40));
             ImGui::BeginGroup(); {
                 ImGui::PushFont(fonts::Regylar);
-                custom::button("Player1", ImVec2(95, 25)); ImGui::SameLine(); custom::button("Player2", ImVec2(95, 25));
-                custom::button("Player3", ImVec2(95, 25)); ImGui::SameLine(); custom::button("Player4", ImVec2(95, 25));
-                custom::button("Player5", ImVec2(95, 25)); ImGui::SameLine(); custom::button("Player6", ImVec2(95, 25));
-                custom::button("Player7", ImVec2(95, 25)); ImGui::SameLine(); custom::button("Player8", ImVec2(95, 25));
-                custom::button("Player9", ImVec2(95, 25)); ImGui::SameLine(); custom::button("Player10", ImVec2(95, 25));
-                custom::button("Player11", ImVec2(95, 25)); ImGui::SameLine(); custom::button("Player12", ImVec2(95, 25));
-                custom::button("Player13", ImVec2(95, 25)); ImGui::SameLine(); custom::button("Player14", ImVec2(95, 25));
-                custom::button("Player15", ImVec2(95, 25)); ImGui::SameLine(); custom::button("Player16", ImVec2(95, 25));
-                custom::button("Player17", ImVec2(95, 25)); ImGui::SameLine(); custom::button("Player18", ImVec2(95, 25));
+                if (custom::button(functions::getPlayerName(0), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(0, 0, (char*)"t EXE_DISCONNECTED");
+                } ImGui::SameLine();
+
+                if (custom::button(functions::getPlayerName(1), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(1, 0, (char*)"t EXE_DISCONNECTED");
+                }
+
+                if (custom::button(functions::getPlayerName(2), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(2, 0, (char*)"t EXE_DISCONNECTED");
+                } ImGui::SameLine();
+
+                if (custom::button(functions::getPlayerName(3), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(3, 0, (char*)"t EXE_DISCONNECTED");
+                }
+
+                if (custom::button(functions::getPlayerName(4), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(4, 0, (char*)"t EXE_DISCONNECTED");
+                } ImGui::SameLine();
+
+                if (custom::button(functions::getPlayerName(5), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(5, 0, (char*)"t EXE_DISCONNECTED");
+                }
+
+                if (custom::button(functions::getPlayerName(6), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(6, 0, (char*)"t EXE_DISCONNECTED");
+                } ImGui::SameLine();
+
+                if (custom::button(functions::getPlayerName(7), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(7, 0, (char*)"t EXE_DISCONNECTED");
+                }
+
+                if (custom::button(functions::getPlayerName(8), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(8, 0, (char*)"t EXE_DISCONNECTED");
+                } ImGui::SameLine();
+
+                if (custom::button(functions::getPlayerName(9), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(9, 0, (char*)"t EXE_DISCONNECTED");
+                }
+
+                if (custom::button(functions::getPlayerName(10), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(10, 0, (char*)"t EXE_DISCONNECTED");
+                } ImGui::SameLine();
+
+                if (custom::button(functions::getPlayerName(11), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(11, 0, (char*)"t EXE_DISCONNECTED");
+                }
+
+                if (custom::button(functions::getPlayerName(12), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(12, 0, (char*)"t EXE_DISCONNECTED");
+                } ImGui::SameLine();
+
+                if (custom::button(functions::getPlayerName(13), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(13, 0, (char*)"t EXE_DISCONNECTED");
+                }
+
+                if (custom::button(functions::getPlayerName(14), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(14, 0, (char*)"t EXE_DISCONNECTED");
+                } ImGui::SameLine();
+
+                if (custom::button(functions::getPlayerName(15), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(15, 0, (char*)"t EXE_DISCONNECTED");
+                }
+
+                if (custom::button(functions::getPlayerName(16), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(16, 0, (char*)"t EXE_DISCONNECTED");
+                } ImGui::SameLine();
+
+                if (custom::button(functions::getPlayerName(17), ImVec2(95, 25)))
+                {
+                    SV_GameSendServerCommand(17, 0, (char*)"t EXE_DISCONNECTED");
+                }
+
                 ImGui::PopFont();
 
             }ImGui::EndGroup();
