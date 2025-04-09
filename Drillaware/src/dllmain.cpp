@@ -29,17 +29,17 @@ void Setup(const HMODULE instance)
 			MB_OK | MB_ICONEXCLAMATION
 		);
 
-		goto UNLOAD;
+		//goto UNLOAD;
 	}
 
-	while (!GetAsyncKeyState(VK_END))
-		std::this_thread::sleep_for(std::chrono::milliseconds(200));
+	//while (!GetAsyncKeyState(VK_END))
+		//std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
-UNLOAD:
-	hooks::Destroy();
-	gui::Destroy();
+//UNLOAD:
+	//hooks::Destroy();
+	//gui::Destroy();
 
-	FreeLibraryAndExitThread(instance, 0);
+	//FreeLibraryAndExitThread(instance, 0);
 
 }
 

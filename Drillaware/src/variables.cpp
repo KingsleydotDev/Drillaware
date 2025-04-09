@@ -13,6 +13,7 @@ const char* variables::map_list[27] = {
 };
 
 int variables::map_list_number = 0;
+int variables::iMaxPlayers = 18;
 
 char variables::friend1[128] = "";
 char variables::friend2[128] = "";

@@ -9,6 +9,7 @@ public:
 
     static const char* map_list[27];
     static int map_list_number;
+    static int iMaxPlayers;
 
     static char friend1[128];
     static char friend2[128];

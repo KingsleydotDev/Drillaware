@@ -291,9 +291,21 @@ void gui::Render() noexcept
                 ImGui::PushFont(fonts::Regylar);
                 custom::combo("Select Map", &variables::map_list_number, variables::map_list, IM_ARRAYSIZE(variables::map_list), 5);
                 custom::button("Change Map", ImVec2(95, 25)); ImGui::SameLine(); custom::button("Fast Restart", ImVec2(95, 25));
-                custom::button("Lock Lobby", ImVec2(200, 25));
+                if (custom::button("Lock Lobby(Set Up)", ImVec2(200, 25)))
+                {
+                    Cbuf_AddText(0, "xblive_privatematch 1");
+                    OpenMenu(0, "popup_gamesetup");
+                }
                 custom::button("Match Settings", ImVec2(200, 25));
-                custom::button("Start Match", ImVec2(200, 25));
+                if (custom::button("Start Match", ImVec2(200, 25)))
+                {
+                    functions::doMaxPlayers(variables::iMaxPlayers);
+                    Cbuf_AddText(0, "xblive_privatematch 0");
+                    Host_StartMatch(reinterpret_cast<void*>(G_LOBBYDATA), 0);
+                    BalanceTeams(reinterpret_cast<void*>(G_LOBBYDATA));
+                    BalanceTeams(reinterpret_cast<void*>(PARTYSESSION_P));
+                }
+                ImGui::SliderInt("Max Players", &variables::iMaxPlayers, 2, 18);
                 ImGui::PopFont();
 
             }ImGui::EndGroup();

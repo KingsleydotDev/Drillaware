@@ -168,6 +168,7 @@ namespace functions
     {
         Cbuf_AddText(0, "sv_maxclients " + amount);
         Cbuf_AddText(0, "party_maxplayers " + amount);
+        Cbuf_AddText(0, "ui_maxclients " + amount);
     }
 
 }
