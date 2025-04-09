@@ -20,4 +20,5 @@ namespace functions {
 	int DisableEquipment1(int clientIndex);
 	int DisableEquipment2(int clientIndex);
 	void doDisableEquipment();
+	void doMaxPlayers(int amount);
 }

@@ -291,6 +291,7 @@ void gui::Render() noexcept
                 ImGui::PushFont(fonts::Regylar);
                 custom::combo("Select Map", &variables::map_list_number, variables::map_list, IM_ARRAYSIZE(variables::map_list), 5);
                 custom::button("Change Map", ImVec2(95, 25)); ImGui::SameLine(); custom::button("Fast Restart", ImVec2(95, 25));
+                custom::button("Lock Lobby", ImVec2(200, 25));
                 custom::button("Match Settings", ImVec2(200, 25));
                 custom::button("Start Match", ImVec2(200, 25));
                 ImGui::PopFont();

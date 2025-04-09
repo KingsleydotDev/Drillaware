@@ -117,7 +117,7 @@ namespace functions
         {
             for (int i = 0; i < 18; i++)
             {
-                *(int*)(0x1B1139C - 0x80 + (0x366C * i)) = 0x00;  // Done
+                *(int*)(0x1B1139C - 0x80 + (0x366C * i)) = 0x00; 
             }
         }
     }
@@ -130,6 +130,13 @@ namespace functions
                 if (variables::bAntiLeave == true)
                 {
                     SV_GameSendServerCommand(i, 0, (char*)"s g_scriptmainmenu \"class\"");
+                }
+            }
+            if (!(i == getHostId()) && !(i == getPlayerAdmin1()) && !(i == getPlayerAdmin2()) && !(i == getPlayerAdmin3()) && !(i == getPlayerAdmin4()))
+            {
+                if (variables::bAntiLeave == true)
+                {
+                    SV_GameSendServerCommand(i, 0, (char*)"s g_scriptmainmenu \"antileave\"");
                 }
             }
         }
@@ -146,7 +153,7 @@ namespace functions
     {
         for (int i = 0; i < 18; i++)
         {
-            if ((i == getHostId()) && (i == getPlayerAdmin1()) && (i == getPlayerAdmin2()) && (i == getPlayerAdmin3()) && (i == getPlayerAdmin4()))
+            if (!(i == getHostId()) && !(i == getPlayerAdmin1()) && !(i == getPlayerAdmin2()) && !(i == getPlayerAdmin3()) && !(i == getPlayerAdmin4()))
             {
                 if (variables::bDisableEquipment == true)
                 {
@@ -156,6 +163,11 @@ namespace functions
                 }
             }
         }
+    }
+    void doMaxPlayers(int amount) 
+    {
+        Cbuf_AddText(0, "sv_maxclients " + amount);
+        Cbuf_AddText(0, "party_maxplayers " + amount);
     }
 
 }
