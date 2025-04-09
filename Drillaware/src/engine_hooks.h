@@ -13,11 +13,10 @@ typedef void(*Notify_fp)(unsigned int notifyListOwnerId, unsigned int stringValu
 extern Notify_fp oNotify;
 
 typedef const char* (__cdecl* ConvertToString_t)(unsigned int stringValue);
-// Declare ConvertToString as extern
 extern ConvertToString_t ConvertToString; 
 
 typedef unsigned int(__cdecl* GetSelf_t)(unsigned int threadId);
-extern GetSelf_t GetSelf; // Declare it as extern
+extern GetSelf_t GetSelf;
 
 typedef void(__cdecl* Cbuf_AddText_t)(int localClientNum, const char* text);
 extern Cbuf_AddText_t Cbuf_AddText;
