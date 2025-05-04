@@ -239,16 +239,6 @@ void gui::Destroy() noexcept
 	DestroyDirectX();
 }
 
-void FastRestart()
-{
-    MapRestart(0, 0);
-    return;
-}
-void ChangeMap()
-{
-    SV_SpawnServer((char*)variables::realmaplist[variables::map_list_number],0,0);
-    return;
-}
 void gui::Render() noexcept
 {
 	ImGui::Begin("DRILLAWARE", &open, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBringToFrontOnFocus);
@@ -306,12 +296,12 @@ void gui::Render() noexcept
                 {
                     // king josh make it do the map change
                     //removed what i had to make it eaiser for you
-                    Cbuf_AddCall(0, ChangeMap);
+                    Cbuf_AddCall(0, functions::ChangeMap);
                 }
                 ImGui::SameLine(); 
                 if (custom::button("Fast Restart", ImVec2(95, 25)))
                 {
-                    Cbuf_AddCall(0, FastRestart);
+                    Cbuf_AddCall(0, functions::FastRestart);
                 }
                 if (custom::button("Lock Lobby", ImVec2(200, 25)))
                     Cbuf_AddText(0, "xblive_privatematch 1");

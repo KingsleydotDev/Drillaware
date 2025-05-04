@@ -22,4 +22,6 @@ namespace functions {
 	void doMaxPlayers(int amount);
 	void doStartMatch();
 	void doBalanceTeams();
+	void FastRestart();
+	void ChangeMap();
 }

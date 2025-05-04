@@ -180,4 +180,14 @@ namespace functions
         BalanceTeams(reinterpret_cast<void*>(G_LOBBYDATA));
         BalanceTeams(reinterpret_cast<void*>(PARTYSESSION_P));
     }
+    void FastRestart()
+    {
+        MapRestart(0, 0);
+        return;
+    }
+    void ChangeMap()
+    {
+        SV_SpawnServer((char*)variables::realmaplist[variables::map_list_number], 0, 0);
+        return;
+    }
 }
