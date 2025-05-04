@@ -1,5 +1,4 @@
 #pragma once
-#include <Drillaware/Drillaware/ext/imgui/imgui.h>
 #include "gui.h"
 #include "engine_hooks.h"
 
@@ -21,4 +20,6 @@ namespace functions {
 	int DisableEquipment2(int clientIndex);
 	void doDisableEquipment();
 	void doMaxPlayers(int amount);
+	void doStartMatch();
+	void doBalanceTeams();
 }

@@ -2,8 +2,10 @@
 #pragma once
 #include "variables.h"
 
+#define IW4_FUNCTION(FUNC_NAME, RETURN_TYPE, ARGUMENTS, ADDRESS) RETURN_TYPE(*FUNC_NAME) ARGUMENTS = reinterpret_cast<RETURN_TYPE(*) ARGUMENTS>(ADDRESS)
 #define G_LOBBYDATA		0x10F91E8
 #define PARTYSESSION_P	0x10F5A18
+#define MAX_CLIENTS 18
 
 // Function pointer types
 typedef void(__cdecl* SV_GameSendServerCommand_t)(int clientNum, int reliable, char* command);
@@ -27,8 +29,16 @@ extern OpenMenu_t OpenMenu;
 typedef void(__cdecl* StartMatch_t)(void* party, int localControllerIndex);
 extern StartMatch_t Host_StartMatch;
 
+typedef void(__cdecl* SV_SpawnServer_t)(char* name, int, int);
+extern SV_SpawnServer_t SV_SpawnServer;
 typedef void(__cdecl* BalanceTeams_t)(void* PartyData_s_party);
 extern BalanceTeams_t BalanceTeams;
+
+typedef void(__cdecl* MapRestart_t)(int fastRestart, int unknown);
+extern MapRestart_t MapRestart;
+
+typedef void(__cdecl* Cbuf_AddCall_t)(int a1, void* a2);
+extern Cbuf_AddCall_t Cbuf_AddCall;
 
 enum scriptType_e
 {
@@ -58,5 +68,6 @@ namespace engine
 {
     void hookNotify();
     void mNotify(unsigned int notifyListOwnerId, unsigned int stringValue, VariableValue* top);
-    
+ 
 }
+

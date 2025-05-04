@@ -1,5 +1,6 @@
 #include "functions.h"
 #include "variables.h"
+#include "../ext/imgui/imgui.h"
 
 namespace functions
 {
@@ -170,5 +171,13 @@ namespace functions
         Cbuf_AddText(0, "party_maxplayers " + amount);
         Cbuf_AddText(0, "ui_maxclients " + amount);
     }
-
+    void doStartMatch()
+    {
+        Cbuf_AddText(0, ";xblive_privatematch 1;wait 2;xpartygo;wait 2;xblive_privatematch 0;");
+    }
+    void doBalanceTeams()
+    {
+        BalanceTeams(reinterpret_cast<void*>(G_LOBBYDATA));
+        BalanceTeams(reinterpret_cast<void*>(PARTYSESSION_P));
+    }
 }

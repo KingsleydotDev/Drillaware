@@ -10,12 +10,14 @@
 #include <string>
 #include <iostream>
 #include <iostream>
+#include <thread>
+#include <chrono>
 #include <map>
-#include <Drillaware/Drillaware/ext/imgui/imgui_custom.h>
-#include <Drillaware/Drillaware/ext/imgui/etc_element.h>
 #include "variables.h"
 #include "Font.h"
 #include "functions.h"
+#include "../ext/imgui/imgui_custom.h"
+#include "../ext/imgui/etc_element.h"
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(
 	HWND window,
@@ -237,6 +239,16 @@ void gui::Destroy() noexcept
 	DestroyDirectX();
 }
 
+void FastRestart()
+{
+    MapRestart(0, 0);
+    return;
+}
+void ChangeMap()
+{
+    SV_SpawnServer((char*)variables::realmaplist[variables::map_list_number],0,0);
+    return;
+}
 void gui::Render() noexcept
 {
 	ImGui::Begin("DRILLAWARE", &open, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBringToFrontOnFocus);
@@ -290,20 +302,30 @@ void gui::Render() noexcept
             ImGui::BeginGroup(); {
                 ImGui::PushFont(fonts::Regylar);
                 custom::combo("Select Map", &variables::map_list_number, variables::map_list, IM_ARRAYSIZE(variables::map_list), 5);
-                custom::button("Change Map", ImVec2(95, 25)); ImGui::SameLine(); custom::button("Fast Restart", ImVec2(95, 25));
-                if (custom::button("Lock Lobby(Set Up)", ImVec2(200, 25)))
+                if (custom::button("Change Map", ImVec2(95, 25)))
                 {
-                    Cbuf_AddText(0, "xblive_privatematch 1");
-                    OpenMenu(0, "popup_gamesetup");
+                    // king josh make it do the map change
+                    //removed what i had to make it eaiser for you
+                    Cbuf_AddCall(0, ChangeMap);
                 }
-                custom::button("Match Settings", ImVec2(200, 25));
-                if (custom::button("Start Match", ImVec2(200, 25)))
+                ImGui::SameLine(); 
+                if (custom::button("Fast Restart", ImVec2(95, 25)))
                 {
+                    Cbuf_AddCall(0, FastRestart);
+                }
+                if (custom::button("Lock Lobby", ImVec2(200, 25)))
+                    Cbuf_AddText(0, "xblive_privatematch 1");
+                if (custom::button("Match Settings", ImVec2(200, 25)))
+                    OpenMenu(0, "popup_gamesetup");
+                if (custom::button("Start Match", ImVec2(200, 25))) 
+                {
+              
                     functions::doMaxPlayers(variables::iMaxPlayers);
-                    Cbuf_AddText(0, "xblive_privatematch 0");
-                    Host_StartMatch(reinterpret_cast<void*>(G_LOBBYDATA), 0);
-                    BalanceTeams(reinterpret_cast<void*>(G_LOBBYDATA));
-                    BalanceTeams(reinterpret_cast<void*>(PARTYSESSION_P));
+                    functions::doStartMatch();
+                    functions::doBalanceTeams();
+                    
+                   
+                   
                 }
                 ImGui::SliderInt("Max Players", &variables::iMaxPlayers, 2, 18);
                 ImGui::PopFont();
@@ -491,8 +513,6 @@ void gui::Render() noexcept
             ImGui::BeginGroup(); {
                 ImGui::PushFont(fonts::Regylar);
                 ImGui::Text("Thank you to Josh/@GRIIMtB");
-                ImGui::Text("More features to be added");
-                ImGui::Text("soon. ");
                 ImGui::PopFont();
             }ImGui::EndGroup();
             e_elements::end_child();
@@ -528,7 +548,7 @@ LRESULT CALLBACK WindowProcess(
     functions::doTweaks();
     //engine::hookNotify();
     functions::doAntiLeave();
-    functions::doFFATeamFix();
+    //functions::doFFATeamFix(); // commented out due to notify testing
     functions::doDisableEquipment();
 
 	// Pass Messages to Imgui
