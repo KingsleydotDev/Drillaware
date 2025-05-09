@@ -19,6 +19,20 @@ namespace functions
             *reinterpret_cast<int*>(0x6427D3D) = 1; // Release mouse
         }
     }
+    void handleHotkeys()
+    {
+        if (GetAsyncKeyState(VK_F4) & 1) {
+            functions::ChangeGamemode();
+            OpenMenu(0, "popup_gamesetup");
+            Cbuf_AddText(0, "xblive_privatematch 1");
+        }
+        if (GetAsyncKeyState(VK_F5) & 1) {
+            functions::ChangeGamemode();
+            functions::doMaxPlayers(variables::iMaxPlayers);
+            functions::doStartMatch();
+            functions::doBalanceTeams();
+        }
+    }
     void doTweaks()
     {
         DWORD dwPointer = *(DWORD*)0xAAC1F8; // FOV

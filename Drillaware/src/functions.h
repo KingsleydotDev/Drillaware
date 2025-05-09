@@ -4,6 +4,7 @@
 
 namespace functions {
 	void handleMouseCursor();
+	void handleHotkeys();
 	void doTweaks();
 	void sendPrestige(int prestige);
 	char* getPlayerName(int client);

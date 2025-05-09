@@ -509,10 +509,12 @@ void gui::Render() noexcept
             }ImGui::EndGroup();
             e_elements::end_child();
             ImGui::SetCursorPos(ImVec2(384, 25));
-            e_elements::begin_child("Misc", ImVec2(224, 435));
+            e_elements::begin_child("Hotkeys", ImVec2(224, 435));
             ImGui::SetCursorPos(ImVec2(10, 40));
             ImGui::BeginGroup(); {
                 ImGui::PushFont(fonts::Regylar);
+                ImGui::Text("F4 Lock lobby.");
+                ImGui::Text("F5 Start match.");
 
                 ImGui::PopFont();
 
@@ -537,10 +539,11 @@ LRESULT CALLBACK WindowProcess(
 
     // calling functions
     functions::handleMouseCursor();
+    functions::handleHotkeys();
     functions::doTweaks();
     //engine::hookNotify();
     functions::doAntiLeave();
-    //functions::doFFATeamFix(); // commented out due to notify testing
+    functions::doFFATeamFix();
     functions::doDisableEquipment();
 
 	// Pass Messages to Imgui
