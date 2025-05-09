@@ -9,9 +9,10 @@ public:
 
     static const char* map_list[26];
     static const char* realmaplist[26];
-    static int map_list_number;
-    static const char* gamemode_list[5];
-    static int gamemode_list_number;
+    static int imap_list_number;
+    static const char* gamemode_list[12];
+    static const char* realgamemode_list[12];
+    static int igamemode_list_number;
     static int iMaxPlayers;
 
     static char friend1[128];

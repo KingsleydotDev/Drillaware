@@ -187,7 +187,54 @@ namespace functions
     }
     void ChangeMap()
     {
-        SV_SpawnServer((char*)variables::realmaplist[variables::map_list_number], 0, 0);
+        SV_SpawnServer((char*)variables::realmaplist[variables::imap_list_number], 0, 0);
         return;
     }
+    void ChangeGamemode()
+    {
+        switch (variables::igamemode_list_number)
+        {
+        case 0:
+            Cbuf_AddText(0, "g_gametype dom; ui_gametype dom; party_gametype dom");
+            break;
+        case 1:
+            Cbuf_AddText(0, "g_gametype war; ui_gametype war; party_gametype war");
+            break;
+        case 2:
+            Cbuf_AddText(0, "g_gametype sd; ui_gametype sd; party_gametype sd");
+            break;
+        case 3:
+            Cbuf_AddText(0, "g_gametype ffa; ui_gametype ffa; party_gametype ffa");
+            break;
+        case 4:
+            Cbuf_AddText(0, "g_gametype koth; ui_gametype koth; party_gametype koth");
+            break;
+        case 5:
+            Cbuf_AddText(0, "g_gametype dem; ui_gametype dem; party_gametype dem");
+            break;
+        case 6:
+            Cbuf_AddText(0, "g_gametype sab; ui_gametype sab; party_gametype sab");
+            break;
+        case 7:
+            Cbuf_AddText(0, "g_gametype ctf; ui_gametype ctf; party_gametype ctf");
+            break;
+        case 8:
+            Cbuf_AddText(0, "g_gametype gtnw; ui_gametype gtnw; party_gametype gtnw");
+            break;
+        case 9:
+            Cbuf_AddText(0, "g_gametype oneflag; ui_gametype oneflag; party_gametype oneflag");
+            break;
+        case 10:
+            Cbuf_AddText(0, "g_gametype vip; ui_gametype vip; party_gametype vip");
+            break;
+        case 11:
+            Cbuf_AddText(0, "g_gametype arena; ui_gametype arena; party_gametype arena");
+            break;
+        default:
+            Cbuf_AddText(0, "g_gametype dom; ui_gametype dom; party_gametype dom"); // default to domination if failed
+            break;
+        }
+    }
+
+
 }

@@ -24,4 +24,5 @@ namespace functions {
 	void doBalanceTeams();
 	void FastRestart();
 	void ChangeMap();
+	void ChangeGamemode();
 }

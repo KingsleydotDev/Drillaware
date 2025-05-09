@@ -291,31 +291,33 @@ void gui::Render() noexcept
             ImGui::SetCursorPos(ImVec2(10, 40));
             ImGui::BeginGroup(); {
                 ImGui::PushFont(fonts::Regylar);
-                custom::combo("Select Map", &variables::map_list_number, variables::map_list, IM_ARRAYSIZE(variables::map_list), 5);
+                custom::combo("Select Map", &variables::imap_list_number, variables::map_list, IM_ARRAYSIZE(variables::map_list), 5);
+                custom::combo("Select Gamemode", &variables::igamemode_list_number, variables::gamemode_list, IM_ARRAYSIZE(variables::gamemode_list), 5);
                 if (custom::button("Change Map", ImVec2(95, 25)))
                 {
-                    // king josh make it do the map change
-                    //removed what i had to make it eaiser for you
+
+                    functions::ChangeGamemode();
                     Cbuf_AddCall(0, functions::ChangeMap);
                 }
                 ImGui::SameLine(); 
                 if (custom::button("Fast Restart", ImVec2(95, 25)))
                 {
+                    functions::ChangeGamemode();
                     Cbuf_AddCall(0, functions::FastRestart);
                 }
                 if (custom::button("Lock Lobby", ImVec2(200, 25)))
+                {
+                    functions::ChangeGamemode();
                     Cbuf_AddText(0, "xblive_privatematch 1");
+                }
                 if (custom::button("Match Settings", ImVec2(200, 25)))
                     OpenMenu(0, "popup_gamesetup");
                 if (custom::button("Start Match", ImVec2(200, 25))) 
                 {
-              
+                    functions::ChangeGamemode();
                     functions::doMaxPlayers(variables::iMaxPlayers);
                     functions::doStartMatch();
                     functions::doBalanceTeams();
-                    
-                   
-                   
                 }
                 ImGui::SliderInt("Max Players", &variables::iMaxPlayers, 2, 18);
                 ImGui::PopFont();
