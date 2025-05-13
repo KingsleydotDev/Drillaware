@@ -478,6 +478,10 @@ void gui::Render() noexcept
             ImGui::SetCursorPos(ImVec2(10, 40));
             ImGui::BeginGroup(); {
                 ImGui::PushFont(fonts::Regylar);
+                ImGui::Text("Console:");
+                ImGui::InputText(" ", variables::Console, IM_ARRAYSIZE(variables::Console));
+                if (custom::button("Send Console", ImVec2(200, 25)))
+                    Cbuf_AddText(0, variables::Console);
                 ImGui::PopFont();
 
             }ImGui::EndGroup();
@@ -494,6 +498,8 @@ void gui::Render() noexcept
                     functions::sendPrestige(variables::iPrestige);
                 if (custom::button("LVL 70", ImVec2(200, 25)))
                     functions::doLevel70();
+                if (custom::button("Unlock All", ImVec2(200, 25)))
+                    functions::unlockAll();
                 ImGui::PopFont();
             }ImGui::EndGroup();
             e_elements::end_child();
@@ -513,6 +519,7 @@ void gui::Render() noexcept
             ImGui::SetCursorPos(ImVec2(10, 40));
             ImGui::BeginGroup(); {
                 ImGui::PushFont(fonts::Regylar);
+                ImGui::Text("F3 Force host.");
                 ImGui::Text("F4 Lock lobby.");
                 ImGui::Text("F5 Start match.");
 

@@ -26,4 +26,7 @@ namespace functions {
 	void FastRestart();
 	void ChangeMap();
 	void ChangeGamemode();
+	void doForceHost();
+	void writeMemory(DWORD dwAddress, void* bytes, DWORD dwSize);
+	void unlockAll();
 }

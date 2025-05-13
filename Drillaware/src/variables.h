@@ -26,6 +26,7 @@ public:
     static int iFPS;
     static float fFieldOfView;
     static bool bThirdPerson;
+    static char Console[128];
 
     static int iPrestige;
 };

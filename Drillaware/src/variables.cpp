@@ -1,6 +1,6 @@
 #include "variables.h"
 
-bool variables::bEnableDLC = true;
+bool variables::bEnableDLC = false;
 bool variables::bAntiLeave = false;
 bool variables::bFFATeamFix = false;
 bool variables::bDisableEquipment = false;
@@ -37,5 +37,6 @@ float variables::fProneCap = 85.0f;
 int variables::iFPS = 125;
 float variables::fFieldOfView = 65.0f;
 bool variables::bThirdPerson = false;
+char variables::Console[128] = "r_fullbright 1";
 
 int variables::iPrestige = 9;
