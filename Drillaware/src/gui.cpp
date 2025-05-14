@@ -540,6 +540,7 @@ void gui::Render() noexcept
             ImGui::SetCursorPos(ImVec2(10, 40));
             ImGui::BeginGroup(); {
                 ImGui::PushFont(fonts::Regylar);
+                ImGui::Text("F2 Send chat to console.");
                 ImGui::Text("F3 Force host.");
                 ImGui::Text("F4 Lock lobby.");
                 ImGui::Text("F5 Start match.");
