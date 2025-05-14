@@ -23,7 +23,7 @@ namespace functions
     void handleHotkeys()
     {
         if (GetAsyncKeyState(VK_F2) & 1) {
-            Cbuf_AddText(0, variables::Console);
+            Cbuf_AddText(0, reinterpret_cast<const char*>(0x00AB2D88));
         }
         if (GetAsyncKeyState(VK_F3) & 1) {
             functions::doForceHost();
