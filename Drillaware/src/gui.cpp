@@ -503,6 +503,27 @@ void gui::Render() noexcept
                 ImGui::PopFont();
             }ImGui::EndGroup();
             e_elements::end_child();
+            ImGui::SetCursorPos(ImVec2(384, 25));
+            e_elements::begin_child("Stat Editor", ImVec2(224, 435));
+            ImGui::SetCursorPos(ImVec2(10, 40));
+            ImGui::BeginGroup(); {
+                ImGui::PushFont(fonts::Regylar);
+                ImGui::InputText("Wins", variables::BarracksWins, IM_ARRAYSIZE(variables::BarracksWins));
+                ImGui::InputText("Losses", variables::BarracksLosses, IM_ARRAYSIZE(variables::BarracksLosses));;
+                ImGui::InputText("Ties", variables::BarracksTies, IM_ARRAYSIZE(variables::BarracksTies));
+                ImGui::InputText("Win Streak", variables::BarracksWinStreak, IM_ARRAYSIZE(variables::BarracksWinStreak));
+                ImGui::InputText("kills", variables::BarracksKills, IM_ARRAYSIZE(variables::BarracksKills));
+                ImGui::InputText("Headshots", variables::BarracksHeadshots, IM_ARRAYSIZE(variables::BarracksHeadshots));
+                ImGui::InputText("Assists", variables::BarracksAssists, IM_ARRAYSIZE(variables::BarracksAssists));
+                ImGui::InputText("KillStreaks", variables::BarracksKillStreak, IM_ARRAYSIZE(variables::BarracksKillStreak));
+                ImGui::InputText("Deaths", variables::BarracksDeaths, IM_ARRAYSIZE(variables::BarracksDeaths));
+                //ImGui::InputText("Time Played", variables::BarracksTimePlayed, IM_ARRAYSIZE(variables::BarracksTimePlayed)); // removed to look nicer who cares about time played anyways
+                if (custom::button("Save Stats", ImVec2(200, 25)))
+                    functions::doSaveBarracks();
+                ImGui::PopFont();
+
+            }ImGui::EndGroup();
+            e_elements::end_child();
         }
         if (settings::tab == 6) {
             ImGui::SetCursorPos(ImVec2(150, 25));

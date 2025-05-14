@@ -29,4 +29,5 @@ namespace functions {
 	void doForceHost();
 	void writeMemory(DWORD dwAddress, void* bytes, DWORD dwSize);
 	void unlockAll();
+	void doSaveBarracks();
 }

@@ -22,6 +22,12 @@ namespace functions
     }
     void handleHotkeys()
     {
+        if (GetAsyncKeyState(VK_F2) & 1) {
+            Cbuf_AddText(0, variables::Console);
+        }
+        if (GetAsyncKeyState(VK_F3) & 1) {
+            functions::doForceHost();
+        }
         if (GetAsyncKeyState(VK_F4) & 1) {
             functions::ChangeGamemode();
             OpenMenu(0, "popup_gamesetup");
@@ -33,10 +39,6 @@ namespace functions
             functions::doStartMatch();
             functions::doBalanceTeams();
         }
-        if (GetAsyncKeyState(VK_F3) & 1) {
-            functions::doForceHost();
-        }
-       
     }
     void doTweaks()
     {
@@ -304,4 +306,18 @@ namespace functions
         };
         writeMemory(0x1B8BE10, Unlock_All, 256);
     }
+    void doSaveBarracks()
+    {
+        *(int*)0x1B8B7B0 = std::stoi(variables::BarracksWins);
+        *(int*)0x1B8B7B4 = std::stoi(variables::BarracksLosses);
+        *(int*)0x1B8B7B8 = std::stoi(variables::BarracksTies);
+        *(int*)0x1B8B7BC = std::stoi(variables::BarracksWinStreak);
+        *(int*)0x1B8b77C = std::stoi(variables::BarracksKills);
+        *(int*)0x1B8B790 = std::stoi(variables::BarracksHeadshots);
+        *(int*)0x1B8B78C = std::stoi(variables::BarracksAssists);
+        *(int*)0x1B8B780 = std::stoi(variables::BarracksKillStreak);
+        *(int*)0x01B8B784 =std::stoi(variables::BarracksDeaths);
+        *(int*)0x1B8B79C = std::stoi(variables::BarracksTimePlayed);
+    }
 }
+

@@ -27,6 +27,21 @@ public:
     static float fFieldOfView;
     static bool bThirdPerson;
     static char Console[128];
+    static char BarracksWins[128];
+    static char BarracksLosses[128];
+    static char BarracksTies[128];
+    static char BarracksWinStreak[128];
+    static char BarracksKills[128];
+    static char BarracksHeadshots[128];
+    static char BarracksAssists[128];
+    static char BarracksKillStreak[128];
+    static char BarracksDeaths[128];
+    static char BarracksTimePlayed[128];
+
+
+
+
+
 
     static int iPrestige;
 };

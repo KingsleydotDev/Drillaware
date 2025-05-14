@@ -37,6 +37,17 @@ float variables::fProneCap = 85.0f;
 int variables::iFPS = 125;
 float variables::fFieldOfView = 65.0f;
 bool variables::bThirdPerson = false;
-char variables::Console[128] = "r_fullbright 1";
+
 
 int variables::iPrestige = 9;
+char variables::Console[128] = "r_fullbright 1";
+char variables::BarracksWins[128] = "1000";
+char variables::BarracksLosses[128] = "250";
+char variables::BarracksTies[128] = "10";
+char variables::BarracksWinStreak[128] = "22";
+char variables::BarracksKills[128] = "30000";
+char variables::BarracksHeadshots[128] = "6000";
+char variables::BarracksAssists[128] = "1000";
+char variables::BarracksKillStreak[128] = "58";
+char variables::BarracksDeaths[128] = "14000";
+char variables::BarracksTimePlayed[128] = "0";
