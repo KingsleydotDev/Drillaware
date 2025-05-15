@@ -30,4 +30,5 @@ namespace functions {
 	void writeMemory(DWORD dwAddress, void* bytes, DWORD dwSize);
 	void unlockAll();
 	void doSaveBarracks();
+	void doGiveDeag();
 }

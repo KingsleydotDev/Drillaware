@@ -251,6 +251,7 @@ void gui::Render() noexcept
         draw->AddRectFilled(ImVec2(p.x, p.y + 51), ImVec2(p.x + 140, p.y + 470), ImColor(9, 9, 9), 5, ImDrawCornerFlags_BotLeft);
         draw->AddText(fonts::font, 24, ImVec2(p.x + 14, p.y + 12), ImColor(255, 255, 255), ".");
         draw->AddText(fonts::font, 24, ImVec2(p.x + 18, p.y + 12), ImColor(205, 92, 92), "DRILLAWARE");
+        draw->AddText(fonts::font, 18, ImVec2(p.x + 125, p.y + 17), ImColor(255, 255, 255), "v1.1");
 
         ImGui::SetCursorPos(ImVec2(1, 55));
         ImGui::BeginGroup(); {
@@ -500,6 +501,8 @@ void gui::Render() noexcept
                     functions::doLevel70();
                 if (custom::button("Unlock All", ImVec2(200, 25)))
                     functions::unlockAll();
+                if (custom::button("Give Gold Deagle Class1", ImVec2(200, 25)))
+                    functions::doGiveDeag();
                 ImGui::PopFont();
             }ImGui::EndGroup();
             e_elements::end_child();
@@ -544,7 +547,6 @@ void gui::Render() noexcept
                 ImGui::Text("F3 Force host.");
                 ImGui::Text("F4 Lock lobby.");
                 ImGui::Text("F5 Start match.");
-
                 ImGui::PopFont();
 
             }ImGui::EndGroup();

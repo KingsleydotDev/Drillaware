@@ -319,5 +319,10 @@ namespace functions
         *(int*)0x01B8B784 =std::stoi(variables::BarracksDeaths);
         *(int*)0x1B8B79C = std::stoi(variables::BarracksTimePlayed);
     }
+
+    void doGiveDeag()
+    {
+        *(int*)0x1B8BBB3C = 00050060;
+    }
 }
 
