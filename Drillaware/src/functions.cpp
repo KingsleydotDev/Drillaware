@@ -69,7 +69,7 @@ namespace functions
     }
     void doLevel70()
     {
-        *(DWORD*)0x1B8B768 = 2450000;
+        *(DWORD*)0x1B8B768 = 2651000;
     }
 
     void doDLCMaps()
@@ -322,7 +322,13 @@ namespace functions
 
     void doGiveDeag()
     {
-        *(int*)0x1B8BBB3C = 00050060;
+        // HEX Value 00050060
+        *(int*)0x1B8BB7C = 327776; // class 2
+        *(int*)0x1B8BBBC = 327776; // class 3
+        *(int*)0x1B8BBFC = 327776; // class 4
+        *(int*)0x1B8BC7C = 327776; // class 6
+        *(int*)0x1B8BCFC = 327776; // class 8
+        *(int*)0x1B8BD3C = 327776; // class 9
     }
 }
 

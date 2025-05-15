@@ -501,7 +501,7 @@ void gui::Render() noexcept
                     functions::doLevel70();
                 if (custom::button("Unlock All", ImVec2(200, 25)))
                     functions::unlockAll();
-                if (custom::button("Give Gold Deagle Class1", ImVec2(200, 25)))
+                if (custom::button("Give Gold Deagle Classes", ImVec2(200, 25)))
                     functions::doGiveDeag();
                 ImGui::PopFont();
             }ImGui::EndGroup();
