@@ -497,7 +497,9 @@ void gui::Render() noexcept
                 ImGui::SliderInt("Prestige", &variables::iPrestige, 0, 11);
                 if (custom::button("Send Prestige", ImVec2(200, 25)))
                     functions::sendPrestige(variables::iPrestige);
-                if (custom::button("LVL 70", ImVec2(200, 25)))
+                if (custom::button("Level 1", ImVec2(95, 25)))
+                    functions::doLevel1();  ImGui::SameLine();
+                if (custom::button("Level 70", ImVec2(95, 25)))
                     functions::doLevel70();
                 if (custom::button("Unlock All", ImVec2(200, 25)))
                     functions::unlockAll();

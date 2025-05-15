@@ -9,6 +9,7 @@ namespace functions {
 	void sendPrestige(int prestige);
 	char* getPlayerName(int client);
 	void doLevel70();
+	void doLevel1();
 	void doDLCMaps();
 	int getHostId();
 	int getPlayerAdmin1();

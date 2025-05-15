@@ -71,6 +71,10 @@ namespace functions
     {
         *(DWORD*)0x1B8B768 = 2651000;
     }
+    void doLevel1()
+    {
+        *(DWORD*)0x1B8B768 = 0;
+    }
 
     void doDLCMaps()
     {
